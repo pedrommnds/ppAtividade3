@@ -46,11 +46,11 @@ public class Main {
 				
 				for(String documentType : plugins) {
 					try {	
-						Class MetaFactory = Class.forName(documentType.toLowerCase().split("\\.")[0] + "." + documentType.split("\\.")[0], true, ucl);
-						IDocument document = (IDocument) MetaFactory.getDeclaredConstructor(cArg).newInstance(file);
+						Class MetaDocument = Class.forName(documentType.toLowerCase().split("\\.")[0] + "." + documentType.split("\\.")[0], true, ucl);
+						IDocument document = (IDocument) MetaDocument.getDeclaredConstructor(cArg).newInstance(file);
 						if(document.supportedExtension().equals(fileExtension)) {
 					        document.open();
-						}    
+						}
 					}catch (Exception e) {
 						e.printStackTrace();
 					}
